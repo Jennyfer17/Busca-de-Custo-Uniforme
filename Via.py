@@ -1,12 +1,12 @@
 
 class Via:
 
-   def __init__(self,cod,loc1,loc2,dist,caract):
-      self.cod = cod
-      self.loc1 = loc1
-      self.loc2 = loc2
-      self.dist = dist
-      self.caract = caract
+   def __init__(self, codigo, localidade1, localidade2, distancia, caracteristicas):
+      self.codigo = codigo
+      self.localidade1 = localidade1
+      self.localidade2 = localidade2
+      self.distancia = distancia
+      self.caracteristicas = caracteristicas
 
 
 

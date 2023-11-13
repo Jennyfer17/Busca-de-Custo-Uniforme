@@ -2,6 +2,7 @@ from Via import *
 from Caracteristicas import *
 from redeViaria import *
 from queue import PriorityQueue
+import csv
 # from interface import InterfaceUsuario
 
 # vias = [Via('a4','beira','inhambane',65, Caract(5,500,130)),
@@ -92,34 +93,50 @@ def mostrar_itinerario(itinerario):
 # Exemplo de uso
 rede_viaria = redeViaria()
 
+
+with open("Road_network.csv") as file:
+    reader = csv.DictReader(file)
+    for row in reader:
+        codigo = row["code"]
+        localidade1 = row["local1"]
+        localidade2 = row["local2"]
+        distancia = float(row["distance"])
+        piso = int(row["ground"])
+        portagem = float(row["portage"])
+        velocidade = float(row["speed"])
+
+        rede_viaria.adicionar_via(Via(codigo, localidade1, localidade2, distancia, Caracteristicas(piso, portagem, velocidade)))
+
+  
+
             #codigo, localidade1, localidade2, distancia, (piso, portagem, velocidade media)
 #via_a4 = Via('a4','beira','inhambane',65, Caracteristicas(5,500,130))
 #via_a1 = Via('a1','beira','quelimane',70, Caracteristicas(5,500,130))
 
-rede_viaria.adicionar_via(Via('a4','beira','inhambane',65, Caracteristicas(5,500,130)))
-rede_viaria.adicionar_via(Via('a4','inhambane','beira',65, Caracteristicas(5,500,130)))
-rede_viaria.adicionar_via(Via('a1','beira','quelimane',70, Caracteristicas(5,500,130)))
-rede_viaria.adicionar_via(Via('a1','quelimane','beira',70, Caracteristicas(5,500,130)))
-rede_viaria.adicionar_via(Via('a4','maputo','inhambane',80, Caracteristicas(5,500,130)))
-rede_viaria.adicionar_via(Via('a4','inhambane','maputo',80, Caracteristicas(5,500,130)))
-rede_viaria.adicionar_via(Via('a1','inhambane','tete',70, Caracteristicas(2,500,130)))
-rede_viaria.adicionar_via(Via('a1','tete','inhambane',70, Caracteristicas(2,500,130)))
-rede_viaria.adicionar_via(Via('n1','beira','quelimane',70, Caracteristicas(5,500,90)))
-rede_viaria.adicionar_via(Via('n1','quelimane','beira',70, Caracteristicas(5,500,90)))
-rede_viaria.adicionar_via(Via('n109','maputo','inhambane',60, Caracteristicas(5,300,70)))
-rede_viaria.adicionar_via(Via('n109','inhambane','maputo',60, Caracteristicas(5,300,70)))
-rede_viaria.adicionar_via(Via('n10','beira','tete',50, Caracteristicas(5,500,130)))
-rede_viaria.adicionar_via(Via('n10','tete','beira',50, Caracteristicas(5,500,130)))
-rede_viaria.adicionar_via(Via('ip1', 'beira','xai-xai',30, Caracteristicas(2,0,60)))
-rede_viaria.adicionar_via(Via('ip1', 'xai-xai','beira',30, Caracteristicas(2,0,60)))
-rede_viaria.adicionar_via(Via('n6', 'quelimane','nampula',70, Caracteristicas(4,0,100)))
-rede_viaria.adicionar_via(Via('n6', 'nampula','quelimane',70, Caracteristicas(4,0,100)))
-rede_viaria.adicionar_via(Via('n23', 'tete','maputo',130, Caracteristicas(3,0,80)))
-rede_viaria.adicionar_via(Via('n23', 'maputo','tete',130, Caracteristicas(3,0,80)))
-rede_viaria.adicionar_via(Via('n35', 'tete','dondo',25, Caracteristicas(2,0,60)))
-rede_viaria.adicionar_via(Via('n35', 'dondo','tete',25, Caracteristicas(2,0,60)))
-rede_viaria.adicionar_via(Via('ic1', 'tete','songo',55, Caracteristicas(3,0,80)))
-rede_viaria.adicionar_via(Via('ic1', 'songo','tete',55, Caracteristicas(3,0,80)))
+#rede_viaria.adicionar_via(Via('a4','beira','inhambane',65, Caracteristicas(5,500,130)))
+#rede_viaria.adicionar_via(Via('a4','inhambane','beira',65, Caracteristicas(5,500,130)))
+#rede_viaria.adicionar_via(Via('a1','beira','quelimane',70, Caracteristicas(5,500,130)))
+#rede_viaria.adicionar_via(Via('a1','quelimane','beira',70, Caracteristicas(5,500,130)))
+#rede_viaria.adicionar_via(Via('a4','maputo','inhambane',80, Caracteristicas(5,500,130)))
+#rede_viaria.adicionar_via(Via('a4','inhambane','maputo',80, Caracteristicas(5,500,130)))
+#rede_viaria.adicionar_via(Via('a1','inhambane','tete',70, Caracteristicas(2,500,130)))
+#rede_viaria.adicionar_via(Via('a1','tete','inhambane',70, Caracteristicas(2,500,130)))
+#rede_viaria.adicionar_via(Via('n1','beira','quelimane',70, Caracteristicas(5,500,90)))
+#rede_viaria.adicionar_via(Via('n1','quelimane','beira',70, Caracteristicas(5,500,90)))
+#rede_viaria.adicionar_via(Via('n109','maputo','inhambane',60, Caracteristicas(5,300,70)))
+#rede_viaria.adicionar_via(Via('n109','inhambane','maputo',60, Caracteristicas(5,300,70)))
+#rede_viaria.adicionar_via(Via('n10','beira','tete',50, Caracteristicas(5,500,130)))
+#rede_viaria.adicionar_via(Via('n10','tete','beira',50, Caracteristicas(5,500,130)))
+#rede_viaria.adicionar_via(Via('ip1', 'beira','xai-xai',30, Caracteristicas(2,0,60)))
+#rede_viaria.adicionar_via(Via('ip1', 'xai-xai','beira',30, Caracteristicas(2,0,60)))
+#rede_viaria.adicionar_via(Via('n6', 'quelimane','nampula',70, Caracteristicas(4,0,100)))
+#rede_viaria.adicionar_via(Via('n6', 'nampula','quelimane',70, Caracteristicas(4,0,100)))
+#rede_viaria.adicionar_via(Via('n23', 'tete','maputo',130, Caracteristicas(3,0,80)))
+#rede_viaria.adicionar_via(Via('n23', 'maputo','tete',130, Caracteristicas(3,0,80)))
+#rede_viaria.adicionar_via(Via('n35', 'tete','dondo',25, Caracteristicas(2,0,60)))
+#rede_viaria.adicionar_via(Via('n35', 'dondo','tete',25, Caracteristicas(2,0,60)))
+#rede_viaria.adicionar_via(Via('ic1', 'tete','songo',55, Caracteristicas(3,0,80)))
+#rede_viaria.adicionar_via(Via('ic1', 'songo','tete',55, Caracteristicas(3,0,80)))
 
 
 

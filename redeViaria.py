@@ -9,7 +9,7 @@ class redeViaria:
         return [via for via in self.vias if via.localidade1 == localidade]
 
     def obter_vias_adjacentes_pela_distancia(self, localidade):
-            vias_adjacentes = [via for via in self.vias if via.localidade1 == localidade]
+            vias_adjacentes = [via for via in self.vias if via.localidade1 == localidade]           
             vias_adjacentes_ordenadas = sorted(vias_adjacentes, key=lambda via: via.distancia)
             return vias_adjacentes_ordenadas
     

@@ -93,21 +93,33 @@ def mostrar_itinerario(itinerario):
 rede_viaria = redeViaria()
 
             #codigo, localidade1, localidade2, distancia, (piso, portagem, velocidade media)
-via_a4 = Via('a4','beira','inhambane',65, Caracteristicas(5,500,130))
-via_a1 = Via('a1','beira','quelimane',70, Caracteristicas(5,500,130))
+#via_a4 = Via('a4','beira','inhambane',65, Caracteristicas(5,500,130))
+#via_a1 = Via('a1','beira','quelimane',70, Caracteristicas(5,500,130))
 
-rede_viaria.adicionar_via(via_a4)
-rede_viaria.adicionar_via(via_a1)
+rede_viaria.adicionar_via(Via('a4','beira','inhambane',65, Caracteristicas(5,500,130)))
+rede_viaria.adicionar_via(Via('a4','inhambane','beira',65, Caracteristicas(5,500,130)))
+rede_viaria.adicionar_via(Via('a1','beira','quelimane',70, Caracteristicas(5,500,130)))
+rede_viaria.adicionar_via(Via('a1','quelimane','beira',70, Caracteristicas(5,500,130)))
 rede_viaria.adicionar_via(Via('a4','maputo','inhambane',80, Caracteristicas(5,500,130)))
+rede_viaria.adicionar_via(Via('a4','inhambane','maputo',80, Caracteristicas(5,500,130)))
 rede_viaria.adicionar_via(Via('a1','inhambane','tete',70, Caracteristicas(2,500,130)))
+rede_viaria.adicionar_via(Via('a1','tete','inhambane',70, Caracteristicas(2,500,130)))
 rede_viaria.adicionar_via(Via('n1','beira','quelimane',70, Caracteristicas(5,500,90)))
+rede_viaria.adicionar_via(Via('n1','quelimane','beira',70, Caracteristicas(5,500,90)))
 rede_viaria.adicionar_via(Via('n109','maputo','inhambane',60, Caracteristicas(5,300,70)))
+rede_viaria.adicionar_via(Via('n109','inhambane','maputo',60, Caracteristicas(5,300,70)))
 rede_viaria.adicionar_via(Via('n10','beira','tete',50, Caracteristicas(5,500,130)))
+rede_viaria.adicionar_via(Via('n10','tete','beira',50, Caracteristicas(5,500,130)))
 rede_viaria.adicionar_via(Via('ip1', 'beira','xai-xai',30, Caracteristicas(2,0,60)))
+rede_viaria.adicionar_via(Via('ip1', 'xai-xai','beira',30, Caracteristicas(2,0,60)))
 rede_viaria.adicionar_via(Via('n6', 'quelimane','nampula',70, Caracteristicas(4,0,100)))
+rede_viaria.adicionar_via(Via('n6', 'nampula','quelimane',70, Caracteristicas(4,0,100)))
 rede_viaria.adicionar_via(Via('n23', 'tete','maputo',130, Caracteristicas(3,0,80)))
+rede_viaria.adicionar_via(Via('n23', 'maputo','tete',130, Caracteristicas(3,0,80)))
 rede_viaria.adicionar_via(Via('n35', 'tete','dondo',25, Caracteristicas(2,0,60)))
+rede_viaria.adicionar_via(Via('n35', 'dondo','tete',25, Caracteristicas(2,0,60)))
 rede_viaria.adicionar_via(Via('ic1', 'tete','songo',55, Caracteristicas(3,0,80)))
+rede_viaria.adicionar_via(Via('ic1', 'songo','tete',55, Caracteristicas(3,0,80)))
 
 
 
@@ -161,12 +173,12 @@ def buscar_caminho_otimo(localidade_inicial, localidade_final, piso, criterio):
     return None
 # itinerario = calcular_itinerario('maputo','tete','distancia')
 criterio = "C3"
-localidade_inicial = "maputo"
-localidade_final = "inhambane"
+localidade_inicial = "beira"
+localidade_final = "songo"
 piso = 3
 itinerario_otimo = buscar_caminho_otimo(localidade_inicial, localidade_final, piso, criterio)
 
 # itinerario02 = calcular_itinerario02('dondo','beira','distancia')
 
-mostrar_itinerario(itinerario_otimo)
+#mostrar_itinerario(itinerario_otimo)
 # mostrar_itinerario02(itinerario02)      
